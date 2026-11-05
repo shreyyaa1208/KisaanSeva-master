@@ -1,0 +1,163 @@
+.navbar {
+  background-image: linear-gradient(to right, #11cb46, #16a34a, #04ba10);
+  width: 100%;
+  z-index: 50;
+  top: 0;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  font-family: sans-serif;
+}
+
+.navbar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* Brand Section */
+.brand {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.brand-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+}
+
+/* Navbar Links */
+.navbar-container {
+  display: flex;
+  gap: 24px; /* spacing between nav items */
+  align-items: center;
+}
+
+.navbar-container a {
+  position: relative;
+  right: 5%;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-container a:hover {
+  background-color: rgba(0, 0, 0, 0.15); /* slight dark on hover */
+}
+
+/* Optional: Active state (if you use NavLink in future) */
+.navbar-container a.active {
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 6px;
+  z-index: 60; /* Ensure hamburger is above menu */
+  padding-right: 40px;
+  background-color: #11cb46;
+  border: 0;
+  padding: 8px;
+}
+
+.hamburger span {
+  /* height: 3px;
+  width: 24px;
+  background-color: white;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+
+  .hamburger span { */
+  display: block;
+  height: 3px;
+  width: 24px;
+  background-color: white; /* <- make sure this is white or a visible color */
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+/* Hamburger animation when open */
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex !important; /* Force display with !important */
+  }
+
+  /* Hide desktop navigation on mobile */
+  .navbar-container {
+    display: none !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-image: linear-gradient(to right, #11cb46, #16a34a, #04ba10);
+    flex-direction: column;
+    gap: 0;
+    padding: 80px 0 20px 0;
+    border-radius: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 40;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .navbar-container.show {
+    display: flex !important;
+    transform: translateY(0);
+  }
+
+  .navbar-container a {
+    position: static;
+    right: auto;
+    width: 100%;
+    text-align: center;
+    padding: 16px 24px;
+    border-radius: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 1.1rem;
+  }
+
+  .navbar-container a:last-child {
+    border-bottom: none;
+  }
+
+  .navbar-container a:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Ensure hamburger is hidden on desktop */
+@media (min-width: 769px) {
+  .hamburger {
+    display: none !important;
+  }
+
+  .navbar-container {
+    display: flex !important;
+  }
+}
